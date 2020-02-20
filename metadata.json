@@ -1,0 +1,18 @@
+{
+  "type": "application",
+  "name": "Commands",
+  "category": "development",
+  "server": "server.js",
+  "icon": "icon.png",
+  "singleton": true,
+  "title": {
+    "en_EN": "Commands"
+  },
+  "description": {
+    "en_EN": "Commands"
+  },
+  "files": [
+    "main.js",
+    "main.css"
+  ]
+}

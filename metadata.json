@@ -1,7 +1,7 @@
 {
   "type": "application",
   "name": "Commands",
-  "category": "development",
+  "category": "input",
   "server": "server.js",
   "icon": "icon.png",
   "singleton": true,

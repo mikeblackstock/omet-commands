@@ -31,42 +31,6 @@ let zoomString = '#zoom=100';
 
 
 
-const createViewMenu = (state, actions, _) => ([{
-	label: _('Log'),
-		checked: state.showLog,
-		onclick: () => actions.toggleLog(!state.showLog)
-	},
-	{
-	label: _('Tools'),
-		checked: state.showTools,
-		onclick: () => actions.toggleTools(!state.showTools)
-	},	
-	{
-	label: 'Zoom: page-fit',
-		onclick: () => actions.changeZoom('#zoom=page-fit')
-	},
-	{
-	label: 'Zoom: 100',
-		onclick: () => actions.changeZoom('#zoom=100')
-	},
-	{
-	label: 'Zoom: 150',
-		onclick: () => actions.changeZoom('#zoom=150')
-	},
-
-
-	{
-		label: 'Zoom: 200',
-		onclick: () => actions.changeZoom('#zoom=200')
-	},
-
-	{
-		label: 'Show zoom',
-		onclick: () => actions.showZoom()
-	}
-
-]);
-
 
 
 const createEditorInterface = (core, proc, win, $content) => {
@@ -122,16 +86,181 @@ const createEditorInterface = (core, proc, win, $content) => {
       }),
 
         h(Button, {
+        title: 'D',
+        label: "D",
+ 
+        onclick:  (ev) => actions.commandsD(ev)
+      }),
+
+       h(Button, {
+        title: 'E',
+        label: "E",
+ 
+        onclick:  (ev) => actions.commandsE(ev)
+      }),
+        h(Button, {
         title: 'F',
         label: "F",
  
         onclick:  (ev) => actions.commandsF(ev)
       }),
-
+ 
+        h(Button, {
+        title: 'G',
+        label: "G",
+ 
+        onclick:  (ev) => actions.commandsG(ev)
+      }),
 
         h(Button, {
+        title: 'H',
+        label: "H",
+ 
+        onclick:  (ev) => actions.commandsH(ev)
+      }),
+ 
+       h(Button, {
+        title: 'I',
+        label: "I",
+ 
+        onclick:  (ev) => actions.commandsI(ev)
+      }),
+      
+        h(Button, {
+        title: 'J',
+        label: "J",
+ 
+        onclick:  (ev) => actions.commandsJ(ev)
+      }) 
+ 
+ 
+ ]),
+//2nd row
+   	h(Toolbar, {
+				style: {
+					display: state.showTools ? undefined : 'none'
+				}
+				
+   	}, [
+
+
+       h(Button, {
         title: 'K',
         label: "K",
+ 
+        onclick:  (ev) => actions.commandsK(ev)
+      }),
+      
+        h(Button, {
+        title: 'L',
+        label: "L",
+ 
+        onclick:  (ev) => actions.commandsB(ev)
+      }),      
+
+        h(Button, {
+        title: 'M',
+        label: "M",
+ 
+        onclick:  (ev) => actions.commandsM(ev)
+      }),
+
+        h(Button, {
+        title: 'N',
+        label: "N",
+ 
+        onclick:  (ev) => actions.commandsF(ev)
+      }),
+
+       h(Button, {
+        title: 'O',
+        label: "O",
+ 
+        onclick:  (ev) => actions.commandsI(ev)
+      }),
+        h(Button, {
+        title: 'P',
+        label: "P",
+ 
+        onclick:  (ev) => actions.commandsK(ev)
+      }),
+ 
+        h(Button, {
+        title: 'Q',
+        label: "Q",
+ 
+        onclick:  (ev) => actions.commandsR(ev)
+      }),
+
+        h(Button, {
+        title: 'R',
+        label: "R",
+ 
+        onclick:  (ev) => actions.commandsR(ev)
+      }),
+ 
+       h(Button, {
+        title: 'S',
+        label: "S",
+ 
+        onclick:  (ev) => actions.commandsS(ev)
+      }),
+      
+        h(Button, {
+        title: 'T',
+        label: "T",
+ 
+        onclick:  (ev) => actions.commandsT(ev)
+      }) 
+ 
+ 
+ ]),
+// 3rd
+   	h(Toolbar, {
+				style: {
+					display: state.showTools ? undefined : 'none'
+				}
+				
+   	}, [
+
+
+       h(Button, {
+        title: 'U',
+        label: "U",
+ 
+        onclick:  (ev) => actions.commandsA(ev)
+      }),
+      
+        h(Button, {
+        title: 'V',
+        label: "V",
+ 
+        onclick:  (ev) => actions.commandsB(ev)
+      }),      
+
+        h(Button, {
+        title: 'W',
+        label: "W",
+ 
+        onclick:  (ev) => actions.commandsC(ev)
+      }),
+
+        h(Button, {
+        title: 'X',
+        label: "X",
+ 
+        onclick:  (ev) => actions.commandsF(ev)
+      }),
+
+       h(Button, {
+        title: 'Y',
+        label: "Y",
+ 
+        onclick:  (ev) => actions.commandsI(ev)
+      }),
+        h(Button, {
+        title: 'Z',
+        label: "Z",
  
         onclick:  (ev) => actions.commandsK(ev)
       }),
@@ -142,16 +271,36 @@ const createEditorInterface = (core, proc, win, $content) => {
  
         onclick:  (ev) => actions.commandsR(ev)
       }),
+
+        h(Button, {
+        title: 'S',
+        label: "S",
+ 
+        onclick:  (ev) => actions.commandsS(ev)
+      }),
  
        h(Button, {
         title: 'T',
         label: "T",
  
         onclick:  (ev) => actions.commandsT(ev)
+      }),
+      
+        h(Button, {
+        title: 'V',
+        label: "V",
+ 
+        onclick:  (ev) => actions.commandsV(ev)
       }) 
  
  
  ]),
+
+
+
+
+
+
 
 		h(Statusbar, {}, [
 			h('span', {}, '')
@@ -332,7 +481,45 @@ const createEditorInterface = (core, proc, win, $content) => {
 	
 		},
 
+		commandsD: (ev) => {
 
+      		contextmenu({
+					position: ev.target,
+					
+ 					menu: [{
+ 
+          				label: '',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '')
+
+						}
+
+						
+						]							
+					
+			});
+	
+		},
+		
+		commandsE: (ev) => {
+
+      		contextmenu({
+					position: ev.target,
+					
+ 					menu: [{
+ 
+          				label: '',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '')
+
+						}
+
+						
+						]							
+					
+			});
+	
+		},		
+		
+		
 		commandsF: (ev) => {
 
       		contextmenu({
@@ -372,9 +559,80 @@ const createEditorInterface = (core, proc, win, $content) => {
 			});
 	
 		},
+		commandsG: (ev) => {
 
+      		contextmenu({
+					position: ev.target,
+					
+ 					menu: [{
+ 
+          				label: '',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '')
 
+						}
 
+						
+						]							
+					
+			});
+	
+		},		
+		commandsH: (ev) => {
+
+      		contextmenu({
+					position: ev.target,
+					
+ 					menu: [{
+ 
+          				label: '',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '')
+
+						}
+
+						
+						]							
+					
+			});
+	
+		},		
+				
+		commandsI: (ev) => {
+
+      		contextmenu({
+					position: ev.target,
+					
+ 					menu: [{
+ 
+          				label: '\\include',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\include')
+
+						}
+
+						
+						]							
+					
+			});
+	
+		},
+		commandsJ: (ev) => {
+
+      		contextmenu({
+					position: ev.target,
+					
+ 					menu: [{
+ 
+          				label: '',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '')
+
+						}
+
+						
+						]							
+					
+			});
+	
+		},		
+		
 		commandsK: (ev) => {
 
       		contextmenu({
@@ -424,6 +682,42 @@ const createEditorInterface = (core, proc, win, $content) => {
 			});
 
 		},		
+
+		commandsS: (ev) => {
+
+      		contextmenu({
+					position: ev.target,
+					
+ 					menu: [{
+ 
+          				label: '\\score',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\score')
+
+						},	
+						
+						{
+         				label: '\\set',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\set')
+
+						},
+					
+						{
+        				label: '\\simultaneous',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\simultaneous')
+
+						},						
+						{
+         				label: 'Staff',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', 'Staff')
+
+						}	
+
+						],							
+					
+			});
+
+		},		
+
 		
 		commandsT: (ev) => {
 
@@ -441,19 +735,61 @@ const createEditorInterface = (core, proc, win, $content) => {
           				onclick: () => core.broadcast('Sandbox', 'Insert', '\\transpose')
 
 						}							
-						
-/* 
-						{
-						label: '\\',
-          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\')
-	
+
+						],							
+					
+			});
+
+		},
+		
+		commandsV: (ev) => {
+
+      		contextmenu({
+					position: ev.target,
+					
+ 					menu: [{
+ 
+          				label: '\\version',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\version')
+
 						},	
-*/
+						
+						{
+         				label: 'Version',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', 'Voice')
+
+						},
+												{
+         				label: '\\voiceOne',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\voiceOne')
+
+						},
+												{
+         				label: '\\voiceTwo',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\voiceTwo')
+
+						},	
+
+						{
+         				label: '\\voiceThree',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\voiceThree')
+
+						},	
+
+						{
+         				label: '\\voiceFour',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\voiceFour')
+
+						}	
+
 						],							
 					
 			});
 
 		}		
+		
+		
+		
 
 	}, view, $content);
 

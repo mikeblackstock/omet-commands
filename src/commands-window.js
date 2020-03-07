@@ -155,7 +155,7 @@ const createEditorInterface = (core, proc, win, $content) => {
         title: 'L',
         label: "L",
  
-        onclick:  (ev) => actions.commandsB(ev)
+        onclick:  (ev) => actions.commandsL(ev)
       }),      
 
         h(Button, {
@@ -169,27 +169,27 @@ const createEditorInterface = (core, proc, win, $content) => {
         title: 'N',
         label: "N",
  
-        onclick:  (ev) => actions.commandsF(ev)
+        onclick:  (ev) => actions.commandsN(ev)
       }),
 
        h(Button, {
         title: 'O',
         label: "O",
  
-        onclick:  (ev) => actions.commandsI(ev)
+        onclick:  (ev) => actions.commandsO(ev)
       }),
         h(Button, {
         title: 'P',
         label: "P",
  
-        onclick:  (ev) => actions.commandsK(ev)
+        onclick:  (ev) => actions.commandsP(ev)
       }),
  
         h(Button, {
         title: 'Q',
         label: "Q",
  
-        onclick:  (ev) => actions.commandsR(ev)
+        onclick:  (ev) => actions.commandsQ(ev)
       }),
 
         h(Button, {
@@ -228,62 +228,7 @@ const createEditorInterface = (core, proc, win, $content) => {
         title: 'U',
         label: "U",
  
-        onclick:  (ev) => actions.commandsA(ev)
-      }),
-      
-        h(Button, {
-        title: 'V',
-        label: "V",
- 
-        onclick:  (ev) => actions.commandsB(ev)
-      }),      
-
-        h(Button, {
-        title: 'W',
-        label: "W",
- 
-        onclick:  (ev) => actions.commandsC(ev)
-      }),
-
-        h(Button, {
-        title: 'X',
-        label: "X",
- 
-        onclick:  (ev) => actions.commandsF(ev)
-      }),
-
-       h(Button, {
-        title: 'Y',
-        label: "Y",
- 
-        onclick:  (ev) => actions.commandsI(ev)
-      }),
-        h(Button, {
-        title: 'Z',
-        label: "Z",
- 
-        onclick:  (ev) => actions.commandsK(ev)
-      }),
- 
-        h(Button, {
-        title: 'R',
-        label: "R",
- 
-        onclick:  (ev) => actions.commandsR(ev)
-      }),
-
-        h(Button, {
-        title: 'S',
-        label: "S",
- 
-        onclick:  (ev) => actions.commandsS(ev)
-      }),
- 
-       h(Button, {
-        title: 'T',
-        label: "T",
- 
-        onclick:  (ev) => actions.commandsT(ev)
+        onclick:  (ev) => actions.commandsU(ev)
       }),
       
         h(Button, {
@@ -291,8 +236,36 @@ const createEditorInterface = (core, proc, win, $content) => {
         label: "V",
  
         onclick:  (ev) => actions.commandsV(ev)
-      }) 
+      }),      
+
+        h(Button, {
+        title: 'W',
+        label: "W",
  
+        onclick:  (ev) => actions.commandsW(ev)
+      }),
+
+        h(Button, {
+        title: 'X',
+        label: "X",
+ 
+        onclick:  (ev) => actions.commandsX(ev)
+      }),
+
+       h(Button, {
+        title: 'Y',
+        label: "Y",
+ 
+        onclick:  (ev) => actions.commandsY(ev)
+      }),
+        h(Button, {
+        title: 'Z',
+        label: "Z",
+ 
+        onclick:  (ev) => actions.commandsZ(ev)
+      })
+ 
+
  
  ]),
 
@@ -582,10 +555,11 @@ const createEditorInterface = (core, proc, win, $content) => {
       		contextmenu({
 					position: ev.target,
 					
- 					menu: [{
+ 					menu: [
+ 						{
  
-          				label: '',
-          				onclick: () => core.broadcast('Sandbox', 'Insert', '')
+          				label: '\\header',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\header')
 
 						}
 
@@ -657,26 +631,181 @@ const createEditorInterface = (core, proc, win, $content) => {
 			});
 
 		},		
-		
-		commandsR: (ev) => {
+
+		commandsL: (ev) => {
+
+      		contextmenu({
+					position: ev.target,
+					
+ 					menu: [
+ 						{
+ 
+          				label: '\\layout',
+          				onclick: () => core.broadcast('Sandbox', 'Insert',"\\layout")
+
+						}
+
+						
+						]							
+					
+			});
+	
+		},		
+
+		commandsM: (ev) => {
 
       		contextmenu({
 					position: ev.target,
 					
  					menu: [{
  
+          				label: '\\major',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\major')
+
+						},
+						
+						{
+         				label: '\\midi',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\midi')
+							
+						},
+						
+						{
+        				label: '\\minor',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\minor')
+							
+						},						
+
+						
+						]							
+					
+			});
+	
+		},		
+
+		commandsN: (ev) => {
+
+      		contextmenu({
+					position: ev.target,
+					
+ 					menu: [{
+ 
+          				label: '',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '')
+
+						}
+
+						
+						]							
+					
+			});
+	
+		},		
+
+		commandsO: (ev) => {
+
+      		contextmenu({
+					position: ev.target,
+					
+ 					menu: [
+ 						{
+ 
+          				label: '\\override',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\override')
+
+						}
+
+						
+						]							
+					
+			});
+	
+		},	
+		
+		commandsP: (ev) => {
+
+      		contextmenu({
+					position: ev.target,
+						
+ 					menu: [
+ 						{
+ 
+          				label: '\\paper',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\paper')
+
+						},
+						
+						{
+ 
+          				label: '\\pointAndClickOff',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\pointAndClickOff')
+
+						},
+						{
+ 
+          				label: '\\pointAndClickOn',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\pointAndClickOn')
+
+						},
+						
+						{
+ 
+          				label: '\\pointAndClickTypes',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\pointAndClickTypes')
+
+						}
+
+						
+						]							
+					
+			});
+	
+		},				
+		
+		
+		commandsQ: (ev) => {
+
+      		contextmenu({
+					position: ev.target,
+					
+ 					menu: [{
+ 
+          				label: '',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '')
+
+						}
+
+						
+						]							
+					
+			});
+	
+		},				
+				
+		
+		
+		
+		commandsR: (ev) => {
+
+      		contextmenu({
+					position: ev.target,
+					
+ 					menu: [
+ 						{
+ 
           				label: '\\relative',
           				onclick: () => core.broadcast('Sandbox', 'Insert', '\\relative')
 
+						},
+ 						{
+ 
+          				label: '\\repeat',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\repeat')
+
 						}	
+												
 						
-/* 
-						{
-						label: '\\',
-          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\')
-	
-						},	
-*/
+
 						],							
 					
 			});
@@ -730,6 +859,14 @@ const createEditorInterface = (core, proc, win, $content) => {
           				onclick: () => core.broadcast('Sandbox', 'Insert', '\\time')
 
 						},
+						
+						{
+          				label: '\\times',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '\\times')
+
+						},
+												
+						
 						{
           				label: '\\transpose',
           				onclick: () => core.broadcast('Sandbox', 'Insert', '\\transpose')
@@ -741,6 +878,27 @@ const createEditorInterface = (core, proc, win, $content) => {
 			});
 
 		},
+
+		commandsU: (ev) => {
+
+      		contextmenu({
+					position: ev.target,
+					
+ 					menu: [{
+ 
+          				label: '',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '')
+
+						}
+
+						
+						]							
+					
+			});
+	
+		},				
+		
+
 		
 		commandsV: (ev) => {
 
@@ -755,7 +913,7 @@ const createEditorInterface = (core, proc, win, $content) => {
 						},	
 						
 						{
-         				label: 'Version',
+         				label: 'Voice',
           				onclick: () => core.broadcast('Sandbox', 'Insert', 'Voice')
 
 						},
@@ -782,14 +940,48 @@ const createEditorInterface = (core, proc, win, $content) => {
 
 						}	
 
-						],							
+						],
+	
+			});
+		},
+
+		commandsW: (ev) => {
+
+      		contextmenu({
+					position: ev.target,
+					
+ 					menu: [{
+ 
+          				label: '',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '')
+
+						}
+
+						
+						]							
 					
 			});
+		},	
 
-		}		
-		
-		
-		
+			
+			
+		commandsX: (ev) => {
+
+      		contextmenu({
+					position: ev.target,
+					
+ 					menu: [{
+ 
+          				label: '',
+          				onclick: () => core.broadcast('Sandbox', 'Insert', '')
+
+						}
+
+						
+						]							
+					
+			});
+		}
 
 	}, view, $content);
 
@@ -812,7 +1004,8 @@ const createEditorInterface = (core, proc, win, $content) => {
 export const createEditorWindow = (core, proc) =>
 	proc.createWindow({
 		id: 'KeyboardWindow',
-		title: proc.metadata.title.en_EN,
+//		title: proc.metadata.title.en_EN,
+		title: '_',
 		icon: proc.resource(proc.metadata.icon),
 		//a bit bigger
 
